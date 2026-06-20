@@ -1,0 +1,263 @@
+/*
+  ═══════════════════════════════════════════════════════
+  07-EXTRAS.CSS
+  ═══════════════════════════════════════════════════════
+  Estados vazios, cards de ajuda, introdução e ajustes complementares.
+
+  COMO EDITAR:
+  - Altere variáveis de cor, espaçamento e sombras preferencialmente em 01-base.css.
+  - Evite duplicar classes: procure primeiro se já existe um componente equivalente.
+  - Comentários com 'AJUSTE AQUI' indicam pontos comuns de personalização.
+*/
+
+/* ── Medals ── */
+      .medals-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+      .medal-card {
+        background: var(--surface);
+        border-radius: var(--r-lg);
+        padding: 20px;
+        border: 1.5px solid rgba(14, 33, 64, 0.07);
+        box-shadow: var(--sh);
+        position: relative;
+        overflow: hidden;
+        transition: all var(--trans);
+      }
+      .medal-card.earned {
+        border-color: rgba(13, 143, 110, 0.25);
+        box-shadow:
+          0 0 0 1px rgba(13, 143, 110, 0.08),
+          var(--sh-md);
+      }
+      .medal-card.earned::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 143, 110, 0.04),
+          transparent
+        );
+        pointer-events: none;
+      }
+      .medal-card.locked {
+        opacity: 0.5;
+      }
+      .medal-icon-wrap {
+        width: 54px;
+        height: 54px;
+        border-radius: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        position: relative;
+      }
+      .medal-card.earned .medal-icon-wrap {
+        background: linear-gradient(135deg, var(--teal-lt), #d1faf0);
+        border: 1px solid rgba(13, 143, 110, 0.2);
+      }
+      .medal-card.locked .medal-icon-wrap {
+        background: var(--surface-2);
+        border: 1px solid var(--grey-l);
+      }
+      .medal-icon-wrap svg {
+        width: 26px;
+        height: 26px;
+      }
+      .medal-tier {
+        position: absolute;
+        top: -4px;
+        right: -4px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #fff;
+        font-weight: 700;
+      }
+      .medal-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 5px;
+      }
+      .medal-desc {
+        font-size: 12px;
+        color: var(--grey);
+        line-height: 1.5;
+      }
+      .medal-status {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 10px;
+        font-size: 10px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 100px;
+        letter-spacing: 0.04em;
+      }
+      .medal-status.earned {
+        background: var(--grn-t);
+        color: var(--green);
+      }
+      .medal-status.locked {
+        background: var(--grey-xl);
+        color: var(--grey);
+      }
+      .medal-status.progress {
+        background: var(--amb-t);
+        color: var(--amber);
+      }
+      .dashboard-medals {
+        margin-bottom: 18px;
+      }
+      .dashboard-medals-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+      .dashboard-medals-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .medals-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .mini-medal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+      .mini-medal-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--teal-lt), #d1faf0);
+        border: 1px solid rgba(13, 143, 110, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 3px 7px rgba(13, 143, 110, 0.1);
+        transition: transform var(--trans);
+      }
+      .mini-medal-icon svg {
+        width: 22px;
+        height: 22px;
+      }
+      .mini-medal-icon:hover {
+        transform: scale(1.07);
+      }
+      .mini-medal-name {
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--grey);
+        text-align: center;
+        max-width: 56px;
+      }
+      .medal-celebration {
+        background: linear-gradient(135deg, var(--navy), var(--navy3));
+        border-radius: var(--r-xl);
+        padding: 22px;
+        margin-bottom: 18px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        box-shadow: var(--sh-lg);
+      }
+      .medal-celebration-icon {
+        width: 52px;
+        height: 52px;
+        background: rgba(71, 201, 168, 0.15);
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .medal-celebration-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: var(--teal-b);
+        fill: none;
+        stroke-width: 1.8;
+      }
+      .medal-celebration-text h3 {
+        font-size: 17px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .medal-celebration-text p {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.6;
+      }
+
+      /* ── Modals ── */
+      .modal-/* Corpo da aplicação: fonte padrão, fundo geral e comportamento base da página. */
+      body {
+        padding: 22px 26px;
+      }
+      .goal-spotlight .progress-wrap {
+        background: var(--grey-xl);
+      }
+      .goal-spotlight .progress-bar {
+        background: linear-gradient(90deg, var(--teal), var(--teal-b));
+      }
+
+      /* ── Extra Mobile ── */
+      @media (max-width: 480px) {
+        .kpi-shell {
+          grid-template-columns: 1fr 1fr !important;
+        }
+        .tipo-selector {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+      /* Responsividade tablet/mobile: regras aplicadas até 1024px. */
+      @media (max-width: 1024px) {
+        .evolucao-shell,
+        .analysis-summary,
+        .dashboard-grid-strong {
+          grid-template-columns: 1fr;
+        }
+        .evo-kpis {
+          grid-template-columns: 1fr 1fr;
+        }
+        .intro-guide {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .principle-ref::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%230A7259' stroke-width='2.5' stroke-linecap='round'%3E%3Cline x1='12' y1='2' x2='12' y2='22'/%3E%3Cline x1='2' y1='12' x2='22' y2='12'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-right: 2px;
+      }
+
+      .gasto-row-simples:last-child {
+        border-bottom: none !important;
+      }
+      .gasto-row-simples button:active {
+        background: var(--teal-lt) !important;
+      }

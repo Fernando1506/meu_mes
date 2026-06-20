@@ -1,0 +1,213 @@
+/*
+  ═══════════════════════════════════════════════════════
+  05-RESPONSIVE.CSS
+  ═══════════════════════════════════════════════════════
+  Ajustes de responsividade para tablets e celulares.
+
+  COMO EDITAR:
+  - Altere variáveis de cor, espaçamento e sombras preferencialmente em 01-base.css.
+  - Evite duplicar classes: procure primeiro se já existe um componente equivalente.
+  - Comentários com 'AJUSTE AQUI' indicam pontos comuns de personalização.
+*/
+
+/* ── Responsive ≤1024px ── */
+      /* Responsividade tablet/mobile: regras aplicadas até 1024px. */
+      @media (max-width: 1024px) {
+        .kpi-shell {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .analysis-summary,
+        .dashboard-grid-strong,
+        .analysis-main-grid,
+        .grid-3,
+        .evolucao-shell,
+        .intro-guide {
+          grid-template-columns: 1fr !important;
+        }
+        .topbar,
+        .month-nav {
+          padding: 0 14px;
+        }
+        .card,
+        .card-soft,
+        .goal-spotlight,
+        .metric-card,
+        .obj-card,
+        .parcela-card,
+        .evo-month-card,
+        .evo-insight,
+        .evo-kpi,
+        .challenge-card,
+        .decision-card {
+          padding: 14px;
+        }
+        .page-wrap {
+          padding: 14px !important;
+        }
+        /* Linha de gasto/conta: layout de descrição, categoria, valor e ações. */
+      .gasto-row {
+          grid-template-columns: 1fr auto auto;
+          gap: 6px;
+          align-items: start;
+        }
+        .gasto-row .chip {
+          display: none;
+        }
+        .gasto-row .gasto-valor {
+          font-size: 12px;
+          white-space: nowrap;
+        }
+        .modal-actions {
+          flex-wrap: wrap;
+        }
+        .modal-actions /* Botão base: todas as variações (.btn-primary, .btn-ghost etc.) herdam deste estilo. */
+      .btn {
+          flex: 1;
+          min-width: 110px;
+        }
+        .funding-availability,
+        .grid-2 {
+          grid-template-columns: 1fr !important;
+        }
+        .evo-month-row {
+          grid-template-columns: 48px 1fr !important;
+        }
+        .evo-month-row > :last-child {
+          grid-column: 1/-1;
+        }
+        .analise-hero > div[style*="grid-template-columns:1fr 1fr 1fr"] {
+          grid-template-columns: 1fr !important;
+        }
+      }
+      /* Responsividade celular: ajustes para telas pequenas. */
+      @media (max-width: 640px) {
+        .kpi-shell {
+          grid-template-columns: 1fr 1fr !important;
+        }
+        .mobile-content {
+          padding: 12px 12px 90px !important;
+          flex: 1;
+        }
+        .page-wrap {
+          padding: 12px !important;
+        }
+        /* Destaque principal do Dashboard: mensagem contextual e sinal do mês. */
+      .dashboard-highlight {
+          padding: 18px !important;
+          border-radius: 14px !important;
+        }
+        .dashboard-highlight h3,
+        .evo-insight h3 {
+          font-size: 18px !important;
+        }
+        .metric-value {
+          font-size: 18px !important;
+        }
+        .month-nav-label {
+          font-size: 13px;
+        }
+        .tipo-selector {
+          grid-template-columns: repeat(2, 1fr) !important;
+        }
+        .decision-actions .btn {
+          width: 100%;
+        }
+        .card,
+        .card-soft,
+        .card-gold {
+          padding: 14px !important;
+          border-radius: 12px !important;
+        }
+        .metric-card {
+          padding: 12px !important;
+        }
+        .btn-lg {
+          padding: 11px 14px !important;
+          font-size: 13px !important;
+        }
+        .modal {
+          width: 100% !important;
+          max-width: 100% !important;
+          border-radius: 16px 16px 0 0 !important;
+          position: fixed !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          top: auto !important;
+          max-height: 92vh !important;
+        }
+        .overlay.center {
+          align-items: flex-end !important;
+        }
+        .modal-/* Corpo da aplicação: fonte padrão, fundo geral e comportamento base da página. */
+      body {
+          padding: 14px 16px !important;
+        }
+        .modal-header {
+          padding: 14px 16px 12px !important;
+        }
+        .modal-actions {
+          padding: 12px 16px !important;
+        }
+        .sheet {
+          padding: 8px 14px 36px !important;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4,
+        .funding-availability {
+          grid-template-columns: 1fr !important;
+        }
+        .parcela-card .parcela-header {
+          flex-direction: column;
+          gap: 8px;
+        }
+        .parcela-card .parcela-header > div:last-child {
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .gasto-row {
+          grid-template-columns: 1fr auto auto;
+          gap: 4px;
+        }
+        .bottom-nav-inner {
+          gap: 0;
+        }
+        .analysis-main-grid {
+          grid-template-columns: 1fr !important;
+        }
+        .kpi-shell .metric-card {
+          padding: 10px !important;
+        }
+        .kpi-shell .metric-value {
+          font-size: 16px !important;
+        }
+        .kpi-shell .metric-label {
+          font-size: 9px !important;
+        }
+        .analise-hero {
+          padding: 16px !important;
+        }
+        .form-input,
+        .form-select,
+        .form-textarea {
+          font-size: 16px !important;
+        }
+        .modal-actions .btn {
+          min-width: 0;
+          font-size: 12px;
+          padding: 9px 10px;
+        }
+        .obj-card .grid-3 {
+          grid-template-columns: 1fr 1fr 1fr !important;
+        }
+        input[type="number"] {
+          -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
